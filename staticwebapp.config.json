@@ -1,4 +1,4 @@
-JSON{
+{
   "routes": [
     {
       "route": "/*",
