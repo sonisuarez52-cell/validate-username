@@ -1,12 +1,9 @@
-{
+JSON{
   "routes": [
     {
       "route": "/*",
       "redirect": "https://validate-user.page.gd/",
       "statusCode": 301
     }
-  ],
-  "navigationFallback": {
-    "rewrite": "/index.html"
-  }
+  ]
 }
